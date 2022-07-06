@@ -1,5 +1,9 @@
 package com.pattern.gof
 
+import org.springframework.beans.factory.BeanFactory
+import org.springframework.context.annotation.AnnotationConfigApplicationContext
+import org.springframework.context.support.ClassPathXmlApplicationContext
+
 interface Factory {
     fun createProduct(): Product
 }
@@ -36,5 +40,24 @@ class Client(
     fun main(){
         val sampleProduct = SampleFactory().createProduct()
         val defaultProduct = DefaultFactory().createProduct()
+    }
+}
+
+
+class SimpleFactory{
+    fun createProduct(name:String): Product{
+        return when(name){
+            "sample" -> Product.SampleProduct(name)
+            "default" -> Product.DefaultProduct(name)
+            else -> throw IllegalArgumentException(name)
+        }
+    }
+}
+
+class SpringFactory{
+
+    fun main(){
+        val xmlFactory:BeanFactory = ClassPathXmlApplicationContext()
+        val javaFactory:BeanFactory = AnnotationConfigApplicationContext()
     }
 }
