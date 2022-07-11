@@ -1,4 +1,4 @@
-package com.pattern.gof
+package com.pattern.gof.chapter1
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
