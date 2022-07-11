@@ -48,4 +48,5 @@ class AdapterUserService(
         return AdapterUser(user)
     }
 
+
 }
