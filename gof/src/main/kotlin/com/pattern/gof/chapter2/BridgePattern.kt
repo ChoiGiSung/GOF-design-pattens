@@ -62,3 +62,38 @@ open class DefaultEat: Eating{
 
 class EatC: DefaultEat()
 class EatD: DefaultEat()
+
+
+//----------------- 패턴 적용 전
+
+class Dog : Eating{
+    override fun eat() {
+        println("먹기")
+    }
+}
+
+
+class Cat : Eating, Animal{
+    override fun eat() {
+        println("먹기")
+    }
+
+    override fun hunt() {
+        println("사냥")
+    }
+}
+
+// 점점 많은 상속
+open class DefaultAnimal: Eating, Animal{
+    override fun eat() {
+        TODO("Not yet implemented")
+    }
+
+    override fun hunt() {
+        TODO("Not yet implemented")
+    }
+}
+
+class Bug : DefaultAnimal() {
+
+}
